@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="form-heading">login Form</h1>
+        <div class="login-form">
+            <div class="main-div">
+                <div class="panel">
+                    <h2>MkDocs Login</h2>
+                    <p>Please enter username and password</p>
+                </div>
+                <form id="Login"  method="post" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    {% bootstrap_form form layout='inline' %}
+                    <div class="forgot">
+                        <a href="reset.html">Forgot password?</a>
+                    </div>
+{#                    <button type="submit" class="btn btn-primary">Login</button>#}
+                    <input type="submit" class="btn btn-primary" value="login"/>
+                    <input type="hidden" name="next" value="{{ next }}"/>
+
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{#{% extends "base.html" %}#}
+{##}
+{#{% block content %}#}
+{##}
+{#    {% if form.errors %}#}
+{#        <p>Your username and password didn't match. Please try again.</p>#}
+{#    {% endif %}#}
+{##}
+{#    {% if next %}#}
+{#        {% if user.is_authenticated %}#}
+{#            <p>Your account doesn't have access to this page. To proceed,#}
+{#                please login with an account that has access.</p>#}
+{#        {% else %}#}
+{#            <p>Please login to see this page.</p>#}
+{#        {% endif %}#}
+{#    {% endif %}#}
+{##}
+{#    <form method="post" action="{% url 'login' %}">#}
+{#        {% csrf_token %}#}
+{#        <table>#}
+{#            <tr>#}
+{#                <td>{{ form.username.label_tag }}</td>#}
+{#                <td>{{ form.username }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td>{{ form.password.label_tag }}</td>#}
+{#                <td>{{ form.password }}</td>#}
+{#            </tr>#}
+{#        </table>#}
+{##}
+{#        <input type="submit" class="btn btn-primary" value="login"/>#}
+{#        <input type="hidden" name="next" value="{{ next }}"/>#}
+{#    </form>#}
+{#{% endblock %}#}

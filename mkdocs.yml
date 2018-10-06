@@ -1,0 +1,15 @@
+site_name: Django + MkDocs Site
+
+docs_dir: 'mkdocs'
+site_dir: 'docs/static/docs'
+
+theme: 'material'
+
+extra:
+
+  palette:
+    primary: 'Light Blue'
+    accent: 'Orange'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
